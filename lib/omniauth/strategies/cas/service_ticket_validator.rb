@@ -84,7 +84,7 @@ module OmniAuth
           http = Net::HTTP.new(@uri.host, @uri.port)
           http.use_ssl = @uri.port == 443 || @uri.instance_of?(URI::HTTPS)
           if http.use_ssl?
-            http.verify_mode = OpenSSL::SSL::VERIFY_NONE if @options.disable_ssl_verification?
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE #if @options.disable_ssl_verification?
             http.ca_path = @options.ca_path
           end
           http.start do |c|
